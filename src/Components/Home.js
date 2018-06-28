@@ -14,7 +14,6 @@ constructor(props) {
     }
 }
 
-
 componentDidMount() {
     console.log(19, this.props);
    // this.props.stuffActions.fetchStuff();  
@@ -29,10 +28,15 @@ renderName() {
 }
 
     render() {
-        console.log(21, this.props);
-        return (<div>
-            HELLO HOME
-        </div>)
+        return (
+            <div className={style.container}>
+            <div id={style.topLeft}>top left</div>
+            <div id={style.topRight}>top right</div>
+            <div id={style.botLeft}>bottom left</div>
+            <div id={style.botRight}>bottom right</div>
+           </div>
+         )
+        
     }
 }
 

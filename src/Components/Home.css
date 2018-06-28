@@ -2,3 +2,45 @@
   background-color: aqua;
   border: 10px solid;
 }
+
+.container {
+  margin: 0 auto;
+  border: 1px solid blue;
+  height: 407px;
+  width: 400px;
+  position: relative;
+}
+
+.container > div {
+  position: absolute;
+  border: 1px solid red;
+  height: 100px;
+  width: 100px;
+  text-align: center;
+}
+
+
+#topLeft {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: blueviolet;
+}
+
+#topRight {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: blueviolet;
+  right: 0;
+}
+
+
+#botRight {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: blueviolet;
+  right: 0;
+  bottom: 0;
+}
+
+#botLeft {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: blueviolet;
+  bottom: 0;
+}

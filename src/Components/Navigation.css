@@ -1,0 +1,15 @@
+  nav,  a {
+  text-align: center;
+  border: 2px solid blue;
+  padding: 3px;
+}
+
+nav {
+    padding: 10px;
+    width: 400px;
+    margin: 0 auto;
+}
+
+a {
+    margin: 2px;
+}

@@ -1,0 +1,38 @@
+.navbar {
+    background: green;
+    height: 50px;  
+
+}
+
+.container {  
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+ .container a {
+  text-align: center;
+  padding-top:10px;
+  width: 100px;
+  color: yellow;
+  display: inline-block;
+  text-decoration: none;
+}
+#menudiv {
+    position:absolute;
+    z-index:1;
+    background-color: green;
+}
+
+#menudiv a {
+    padding-top:10px;
+    display: block;
+    width: 100px;
+
+}
+
+#nestedDropDown {
+    
+    position: absolute;
+    
+}

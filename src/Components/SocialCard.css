@@ -1,0 +1,33 @@
+.container {
+    border-top: 0.5px solid gray;
+    border-bottom: 0.5px solid gray;  
+    margin: 0 auto;
+    width: 588px;
+    height: 488px;
+    display: flex; 
+}
+
+.container > div {
+  border: 1px solid black;
+  margin: 10px 0 5px 10px;
+}
+
+div:nth-of-type(2) {
+  flex-grow: 1;  
+}
+
+#dev {
+    text-align: center;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    line-height: 74px;
+    height: 70px;
+    width: 70px;
+    
+}
+/* 
+#devs {
+    margin-bottom: 4px;
+    text-align: center;
+} */

@@ -1,9 +1,13 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Home from './Components/Home';
-import Navigation from './Components/Navigation';
-import Login from './Components/Login';
-import CenterBlock from './Components/CenterBlock';
+// import Home from './Components/Home';
+// import Navigation from './Components/Navigation';
+import Navigator from './Components/Navigator';
+
+// import Login from './Components/Login';
+// import CenterBlock from './Components/CenterBlock';
+// import SocialCard from './Components/SocialCard';
+
 import { Provider } from 'react-redux';
 import { configureStore, history } from './store/configureStore';
 import { startListener } from './middleware/listener';
@@ -20,11 +24,7 @@ startListener(history, store);
 
 const App = (data) => (
         <div>
-            <CenterBlock />
-            <div style={{height: '40px'}}></div>
-            <Home />
-            <div style={{height: '40px'}}></div>
-            <Navigation />
+            <Navigator />
         </div>    
 )
 

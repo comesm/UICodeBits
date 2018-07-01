@@ -35,48 +35,47 @@ handleHover(e) {
 }
 
 handleExit(e) {
-    console.log(e.target);
-    if(e.target.name === 'listItem') {
-        this.setState({showMenu: false});
-    }
+   // if(e.target.name === 'listItem') {
+        let newState = {...this.state};
+        newState.menu.display = false;
+        this.setState(newState);
+   // }
   }
 
 
 showMenu() {
 
-   return <div onMouseLeave={(e) => this.handleExit(e)} id={styles.menudiv}>
-            <div><a name="listItem">thing 1</a></div>
-            <div><a name="listItem2">thing 2</a>{
-                this.state.menu.nestedMenu.display ? this.showNestMenu() : null
-            }</div>
-            <div><a name="listItem">thing 3</a></div>
-            <div><a name="listItem">thing 4</a></div>
-          </div> 
+   return <ul id={styles.menu}> 
+           <li><a name="listItem">thing 1</a></li>
+           <li><a name="listItem2">thing 2</a>{this.showNestMenu()}</li>
+           <li><a name="listItem">thing 3</a></li>
+           <li><a name="listItem">thing 4</a></li>
+          </ul>
+ 
 }
 
 showNestMenu() {
 
-    return <div onMouseLeave={(e) => this.handleExit(e)} id={styles.menudiv}>
-             <div><a name="listItem">thing 1</a></div>
-             <div><a name="listItem2">thing 2</a></div>
-             <div><a name="listItem">thing 3</a></div>
-             <div><a name="listItem">thing 4</a></div>
-           </div> 
+    return <ul id={styles.submenu}>
+             <li><a name="listItem">sub thing 1</a></li>
+             <li><a name="listItem2">sub thing 2</a></li>
+             <li><a name="listItem">sub thing 3</a></li>
+             <li><a name="listItem">sub thing 4</a></li>
+           </ul> 
  }
 
 
 
 render() {
-  return <div className={styles.navbar}>
-   <div onMouseOver={e => this.handleHover(e)} className={styles.container}>
-     <div><a href="#">home</a></div> 
-     <div><a name="about" href="#">about</a>{
+  
+ return <div onMouseOver={e => this.handleHover(e)} className={styles.container}>
+     <a href="#">home</a> 
+     <div ><a style={{textDecoration: 'none', color: 'yellow'}} name="about" href="#">about</a>{
         this.state.menu.display ? this.showMenu() : null
        }</div>
-     <div><a href="#">contact</a></div>
-     <div><a href="#">more</a></div>
-    </div>
-  </div> 
+     <a href="#">contact</a>
+     <a href="#">more</a>
+     </div>
 
   }
 }

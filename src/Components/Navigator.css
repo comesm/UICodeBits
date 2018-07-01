@@ -1,38 +1,52 @@
-.navbar {
-    background: green;
-    height: 50px;  
 
-}
-
-.container {  
+.container {
+  background: green;
+  height: 50px;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
- .container a {
+ .container > a {
   text-align: center;
-  padding-top:10px;
-  width: 100px;
   color: yellow;
-  display: inline-block;
+  display: block;
   text-decoration: none;
 }
-#menudiv {
-    position:absolute;
+
+
+#menu {
+    position: absolute;
     z-index:1;
     background-color: green;
+    padding: 0px;
+    margin-top: 10px;
 }
 
-#menudiv a {
-    padding-top:10px;
+#submenu {
+  background: green;
+  position: absolute;
+  z-index:1;
+  left: 56px;
+  width:100px;
+  padding: 0px;
+  /* padding: 0px 10px 0px 10px; */
+    
+}
+
+#menudiv > a {
+    text-decoration: none;
+    color: yellow;
+}
+
+li { 
+    list-style-type: none;
     display: block;
-    width: 100px;
-
+    padding-top:10px;
+    /* padding-left: 10px;
+    width: 75px; */
 }
 
-#nestedDropDown {
-    
-    position: absolute;
-    
+li > a {
+    color: yellow;
 }

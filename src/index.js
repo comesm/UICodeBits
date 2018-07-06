@@ -1,12 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
-// import Home from './Components/Home';
-// import Navigation from './Components/Navigation';
-import Navigator from './Components/Navigator';
 
-// import Login from './Components/Login';
-// import CenterBlock from './Components/CenterBlock';
-// import SocialCard from './Components/SocialCard';
+import Calculator from './Components/Calculator';
 
 import { Provider } from 'react-redux';
 import { configureStore, history } from './store/configureStore';
@@ -22,15 +17,15 @@ console.log(15, store, history);
 
 startListener(history, store);
 
-const App = (data) => (
-        <div>
-            <Navigator />
-        </div>    
-)
+// const App = (data) => (
+//         <div>
+//             <Navigator />
+//         </div>    
+// )
 
 const Root = ({ store }) => (
    <Provider store={store}>
-    <App />
+    <Calculator />
    </Provider>           
 )
 

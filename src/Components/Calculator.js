@@ -10,7 +10,9 @@ constructor() {
   this.state = {
       displayNumbers: '0.0',
       clicked: null,
-      calculate: []
+      calculate: [],
+      result: 0,
+      processing: null
   }
 }
 
@@ -20,42 +22,33 @@ handleClick(e) {
 }
 
 compute() {
-  let answer = this.calculate(this.state.calculate);
-  console.log(answer);    
+  return this.calculate();
+  //this.setState({displayNumbers: answer, calculate: []});  
 }
 
-updateDisplayNumbers(val) {
-
+updateDisplayNumbers(input) {
+  
   let newState = {...this.state};
-
-  if(val === '+' || val === '=' ||  val === '-' || val === '/' || val === '*') {
-    const number = parseFloat(newState.displayNumbers, 10);
-    newState.displayNumbers = '0.0';
-    if(number !== 0) { 
-      newState.calculate.push(number);
-      if(val !== '=') {
-        newState.calculate[newState.calculate.length] = val;
+  let val = parseFloat(input, 10) || input;   
+  //if(typeof val === 'string') {
+    if(val === 'C') {
+      newState.calculate = [];
+      newState.displayNumbers = '0.0';
+    } else {
+      if(val === '=') {
+        let answer = this.compute();   
+        newState.displayNumbers = answer;
+      } else {
+        newState.displayNumbers = val;
       } 
-    } else if(val !== '=') {
-      newState.calculate[newState.calculate.length - 1] = val; 
-    }
-  } if(val === '=') {
-    this.compute();
-  }
-  else if(val === 'C') {
-    newState.calculate = [],
-    newState.displayNumbers = '0.0'
+    
+    newState.calculate.push(val);
   } 
-  else if(newState.displayNumbers === '0.0' || val === '0.0') {
-    newState.displayNumbers = val;
-  }  else {
-    newState.displayNumbers = newState.displayNumbers + val;
-  }
   this.setState(newState);
 }
 
-calculate(array) {
-  
+calculate() {
+  let array = {...this.state.calculate}.calculate;
   let result = 0;
   let processing = null;
   let arr = this.transformArray(array);
@@ -83,7 +76,7 @@ calculate(array) {
 reduceTerm(term1, term2) {
   if(term1 === null) return term2;
 
-  if(term2 === null) return term1;
+  if(term2 === null) return term1;  
   
   term1[1] = this.applyOperator(term1[1], term2[0], term2[1]);
   
@@ -103,7 +96,6 @@ applyOperator(term1, operator, term2) {
   if(operator === '-') return term1 - term2;
 
 }
-
 
 transformArray(array) {
   
